@@ -3,10 +3,10 @@
 var https = require('https');
 var chunk = '';
 
-	var options = {
-		host: 'sytantris.github.io',
-		path: '/http-examples/step3.html'
-	};
+var options = {
+	host: 'sytantris.github.io',
+	path: '/http-examples/step3.html'
+};
 
 function getAndPrintHTML () {
 

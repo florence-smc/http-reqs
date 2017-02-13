@@ -1,4 +1,10 @@
 var https = require('https');
+var buffer = '';
+
+// always define the function before you use it
+function printHTML(html) {
+	console.log(html);
+}
 
 function getHTML (options, callback) {
 
@@ -8,20 +14,16 @@ function getHTML (options, callback) {
 		response.setEncoding('utf8');
 
 		response.on('data', function(data) {
-			callback(data);
+			buffer += data;
 		});
 
 		response.on('end', function() {
+			callback(buffer);
 			console.log('Response stream complete.');
 		});
 
 	})
 
-}
-
-
-function printHTML(html) {
-	console.log(html);
 }
 
 var requestOptions = {
